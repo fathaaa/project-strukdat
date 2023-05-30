@@ -1,1 +1,1 @@
-kapasitasPesawa
+removeAll
