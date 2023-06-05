@@ -897,15 +897,15 @@ int main()
     tempLL.saveToFile("data.txt");
     tempLL.removeAllNodes();
 
-    ifstream inputFile("pesawat_info.txt");
-            if (inputFile.is_open())
+    ifstream inputFile2("pesawat_info.txt");
+            if (inputFile2.is_open())
             {
                 for (int i = 0; i < MAX_PESAWAT; ++i)
                 {
                     string kode, asal, tujuan, tanggal, waktuBerangkat, waktuTiba, harga;
                     int kapasitas;
 
-                    inputFile >> kode >> asal >> tujuan >> tanggal >> waktuBerangkat >> waktuTiba >> kapasitas >> harga;
+                    inputFile2 >> kode >> asal >> tujuan >> tanggal >> waktuBerangkat >> waktuTiba >> kapasitas >> harga;
 
                     pesawat[i].setKodePenerbangan(kode);
                     pesawat[i].setAsal(asal);
@@ -917,7 +917,7 @@ int main()
                     pesawat[i].setHarga(harga);
                 }
 
-                inputFile.close();
+                inputFile2.close();
 
                 for (int i = 0; i < MAX_PESAWAT; ++i)
                 {
