@@ -290,6 +290,15 @@ class Layout
                         seats[seatNumber - 1] = -1;
                     }
                 }
+
+                void markSeatAsnotSold(const string &kodePesawat, int seatNumber)
+                {
+                    vector<int> &seats = seatLayouts[kodePesawat];
+                    if (seatNumber >= 1 && seatNumber <= seats.size())
+                    {
+                        seats[seatNumber - 1] = 1;
+                    }
+                }
 };
 
 struct Node {
@@ -887,6 +896,46 @@ int main()
     ofstream file("data.txt", ofstream::trunc);
     tempLL.saveToFile("data.txt");
     tempLL.removeAllNodes();
+
+    ifstream inputFile("pesawat_info.txt");
+            if (inputFile.is_open())
+            {
+                for (int i = 0; i < MAX_PESAWAT; ++i)
+                {
+                    string kode, asal, tujuan, tanggal, waktuBerangkat, waktuTiba, harga;
+                    int kapasitas;
+
+                    inputFile >> kode >> asal >> tujuan >> tanggal >> waktuBerangkat >> waktuTiba >> kapasitas >> harga;
+
+                    pesawat[i].setKodePenerbangan(kode);
+                    pesawat[i].setAsal(asal);
+                    pesawat[i].setTujuan(tujuan);
+                    pesawat[i].setTanggalBerangkat(tanggal);
+                    pesawat[i].setWaktuBerangkat(waktuBerangkat);
+                    pesawat[i].setWaktuTiba(waktuTiba);
+                    
+                    pesawat[i].setHarga(harga);
+                }
+
+                inputFile.close();
+
+                for (int i = 0; i < MAX_PESAWAT; ++i)
+                {
+                    pesawat[i].displayData(i);
+                }
+            }
+
+    for (int i = 0; i < MAX_PESAWAT; ++i)
+        {
+                    if(pesawat[i].getKodeterbang()==kodePenerbangan)
+                    {
+                        pesawat[i].setKapasitas(pesawat[i].getKapasitas() + 1);
+                    }
+        }
+    
+
+    layout.markSeatAsnotSold(kodePenerbangan, seat);
+    
 
     cout <<"Penerbangan anda berhasil dibatalkan";
 
