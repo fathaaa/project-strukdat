@@ -291,12 +291,12 @@ class Layout
                     }
                 }
 
-                void markSeatAsnotSold(const string &kodePesawat, int seatNumber)
+                void markSeatAsnotSold(const string &kodePesawat, int seatNumber, int noseat)
                 {
                     vector<int> &seats = seatLayouts[kodePesawat];
                     if (seatNumber >= 1 && seatNumber <= seats.size())
                     {
-                        seats[seatNumber - 1] = 1;
+                        seats[seatNumber - 1] = noseat;
                     }
                 }
 };
@@ -934,7 +934,7 @@ int main()
         }
     
 
-    layout.markSeatAsnotSold(kodePenerbangan, seat);
+    layout.markSeatAsnotSold(kodePenerbangan, seat, seat);
     
 
     cout <<"Penerbangan anda berhasil dibatalkan";
