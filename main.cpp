@@ -321,18 +321,15 @@ public:
                     const string& nohp, const string& jenisidentitas, const string& noidentitas,
                     const string& kodePenerbangan, int seat, const string& tanggalterbang,
                     const string& waktuterbang) {
-        Node* newNode = new Node;
-        Node* current = head;
-        while (current != nullptr) {
-        if (current->username == username && current->nama == nama &&
-            current->kodePenerbangan == kodePenerbangan && current->seat == seat) {
-            return;
-        } else{
-        current = current->next;
-        
-        
+                    Node* newNode = new Node;
+                    Node* current = head;
+                    while (current != nullptr) {
+                    if (current->username == username && current->nama == nama &&
+                        current->kodePenerbangan == kodePenerbangan && current->seat == seat) {
+                        return;
+                    } else{
+                    current = current->next;
         }
-
     }
         newNode->username = username;
         newNode->nama = nama;
@@ -469,7 +466,6 @@ void displayJadwal(Node* head, const string& onlineusername) {
 
     while (current != nullptr) {
         if (current->username == onlineusername) {
-            // Check if the current node's data is already displayed
             bool duplicate = false;
             Node* temp = head;
             while (temp != current) {
@@ -501,9 +497,6 @@ void displayJadwal(Node* head, const string& onlineusername) {
         cout << "Data penumpang dengan username " << onlineusername << " tidak ditemukan." << endl;
     }
 }
-
-
-
 
 void addSpace(int lines)
     {
@@ -540,7 +533,7 @@ int main()
         cout << "Pilihan anda adalah:";
         int option;
         cin >> option;
-        addSpace(10);
+        addSpace(2);
 
         if (option == 1)
         {
@@ -785,7 +778,8 @@ int main()
         break;
         
         case 2:
-            {
+            {       
+                    linkedList.removeAllNodes();
                     ifstream inputFile("data.txt");
                     if (inputFile.is_open()) {
                     string username, nama, tanggallahir, nohp, jenisidentitas, noidentitas, kodePenerbangan, waktuterbang, tanggalterbang;
@@ -860,8 +854,8 @@ int main()
         {
 
     
-                    ifstream inputFile("data.txt");
-    if (inputFile.is_open()) {
+        ifstream inputFile("data.txt");
+        if (inputFile.is_open()) {
         string username, nama, tanggallahir, nohp, jenisidentitas, noidentitas, kodePenerbangan, waktuterbang, tanggalterbang;
         int seat;
 
@@ -876,7 +870,7 @@ int main()
 
     displayJadwal(tempLL.getHead(), onlineusername);
 
-    // Prompt for node removal
+    
     cout << "Masukkan nama: ";
     string nama;
     cin >> nama;
@@ -903,10 +897,7 @@ int main()
         exitProgram = true;
     }
 }
-break;
-
-
-        
+break;     
         case 9:
 
             exitProgram = true;
