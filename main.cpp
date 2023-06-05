@@ -918,11 +918,6 @@ int main()
                 }
 
                 inputFile2.close();
-
-                for (int i = 0; i < MAX_PESAWAT; ++i)
-                {
-                    pesawat[i].displayData(i);
-                }
             }
 
     for (int i = 0; i < MAX_PESAWAT; ++i)
