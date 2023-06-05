@@ -932,7 +932,7 @@ int main()
     layout.markSeatAsnotSold(kodePenerbangan, seat, seat);
     
 
-    cout <<"Penerbangan anda berhasil dibatalkan";
+    cout <<"Penerbangan anda berhasil dibatalkan"<<endl;
 
     cout << "Kembali ke menu utama [Y/N]: ";
     string answer;
